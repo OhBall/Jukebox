@@ -10,7 +10,7 @@ function onYouTubeApiLoad(){
 function onClientLoad() {
 	gapi.client.setApiKey(apiKey);
 	gapi.client.load('youtube', 'v3', onYouTubeApiLoad);
-};
+}
 
 //function for searching youtube
 function search(keyword){
@@ -20,14 +20,14 @@ function search(keyword){
 	    maxResults: 1,
 	});
 	request.execute(onSearchResponse);
-};
+}
 
 function onSearchResponse(response){
 	//showResponse(response);
 	console.log(response);
 	var vidID = response.items[0].id.videoId;
 	$("#ytubeplayer")[0].src = 'https://www.youtube.com/embed/'+vidID+"?autoplay=1";
-};
+}
 
 function showResponse(response) {
     var responseString = JSON.stringify(response, '', 2);
@@ -45,8 +45,8 @@ $(document).ready(function(){
 	
 	//create search button
 	var searchButton = document.createElement("input");
-	searchButton.type = "Submit"
-	searchButton.value = "Play"
+	searchButton.type = "Submit";
+	searchButton.value = "Play";
 	$("#searchForm").append(searchButton);
 	
 	$("#searchForm").submit(function(){
@@ -84,7 +84,7 @@ $(document).ready(function(){
 	var video = document.createElement("iframe");
 	video.width = width="300";
 	video.height = height="300";
-	video.id = "ytubeplayer"
+	video.id = "ytubeplayer";
 	video.autoplay = 1;
 	video.src = "";
 	document.body.appendChild(video);
